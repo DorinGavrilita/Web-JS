@@ -44,3 +44,17 @@ const person = {
 console.log(person);
 console.log(person.firstName);
 person.displayName();
+
+console.log('Type conversion');
+let value = true;
+console.log(typeof (value));
+
+value = String(value);
+console.log(`value is: ${value} and have type ` + typeof (value));
+
+console.log('15' / '3');
+
+str = '2002';
+console.log(typeof (str));
+let num = Number(str);
+console.log(typeof (num));
