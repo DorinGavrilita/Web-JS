@@ -94,3 +94,49 @@ console.log(undefined == null); // true
 console.log(undefined === null); // false
 console.log(null == "\n0\n"); // false
 console.log(null === +"\n0\n"); // false
+
+// Логические операторы
+console.log('Логические операторы');
+console.log(null || 2 || undefined); // 2
+console.log(console.log(1) || 2 || console.log(3)); // 1; 2
+console.log(1 && null && 2); // null
+console.log(console.log(1) && console.log(2)); // 1; undefined
+console.log(null || 2 && 3 || 4); // 3 
+
+console.log('Напишите условие if для проверки, что переменная age находится в диапазоне между 14 и 90 включительно.');
+let age = Math.floor(Math.random() * 100);
+console.log('Age: ' + age);
+if (age >= 14 && age <= 90) {
+	console.log(age + ' в диапазоне\n');
+}
+
+console.log('Напишите условие if для проверки, что значение переменной age НЕ находится в диапазоне 14 и 90 включительно.');
+if (!(age >= 14 && age <= 90)) {
+	console.log('1)' + age + ' вне диапазона');
+}
+if (age < 14 || age > 90) {
+	console.log('2)' + age + ' вне диапазона\n');
+}
+
+console.log('Вопрос об "if"');
+if (-1 || 0) console.log('first');
+if (-1 && 0) console.log('second');
+if (null || -1 && 1) console.log('third');
+
+// Проверка логина
+alert('Проверка логина');
+let visitor = prompt("Кто там?");
+if (visitor == 'Админ') {
+	let password = prompt('Введите пароль:');
+	if (password == 'Я главный') {
+		alert('Здравствуйте!')
+	} else if (password == null) {
+		alert('Отменено');
+	} else if (password != 'Я главный') {
+		alert('Неверный пароль')
+	}
+} else if (visitor == null) {
+	alert('Отменено');
+} else if (visitor != 'Админ') {
+	alert('Я вас не знаю.');
+}
