@@ -78,7 +78,6 @@ min(2, 5) == 2
 min(3, -1) == -1
 min(1, 1) == 1
 console.log(min(2, 5) === 2);
-*/
 
 // #3  Функция pow(x,n)
 function pow(x, n) {
@@ -91,3 +90,11 @@ console.log(pow(x, n));
 console.log(pow(3, 9)); 
 console.log(pow(3, 3)); 
 console.log(pow(1, 100)); 
+*/
+
+let ask = (question, yes, no) => confirm(question) ? yes() : no();
+
+ask("Вы согласны?",
+	() => { alert('Вы согласились.'); },
+	() => { alert('Вы отменили выполнение.'); },
+);
