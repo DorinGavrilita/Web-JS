@@ -1,0 +1,48 @@
+body{
+  margin: 20px;
+}
+
+header {
+  background-color: aquamarine;
+  height: 5em;
+  font-size: 23px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav a {
+  margin: 20px;
+  display: block;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 0.5em;
+  background-color: rgb(166, 255, 255);
+}
+
+main{
+  display: grid;
+  grid-template-columns: 10em auto;
+}
+
+main aside{
+  padding: 20px;
+  background-color: bisque;
+}
+
+main section{
+  padding: 20px;
+  background-color: azure;
+}
+
+footer{
+  padding: 20px;
+  background-color: rgb(130, 130, 233);
+  height: 5em;
+  font-size:23px;
+  text-align: center;
+}
