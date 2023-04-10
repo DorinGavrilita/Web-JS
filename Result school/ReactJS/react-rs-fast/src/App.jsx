@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import TodoList from './Todo/TodoList'
 import Context from './context'
 import AddTodo from './Todo/AddTodo'
 
 function App() {
-  const [todos, setTodos] = React.useState([
-    { id: 1, completed: false, title: 'Купить яблоки' },
-    { id: 2, completed: true, title: 'Купить капусту' },
-    { id: 3, completed: false, title: 'Купить бананы' },
-  ])
+  const [todos, setTodos] = React.useState([])
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
+      .then((response) => response.json())
+      .then((todos) => {
+        setTimeout(() => {
+          setTodos(todos)
+        }, 2000)
+      })
+  }, [])
 
   function toggleTodo(id) {
     setTodos(
@@ -26,19 +32,22 @@ function App() {
   }
 
   function addTodo(title) {
-    setTodos(todos.concat([{
-      title,
-      id: Date.now(),
-      completed: false
-    }]))
+    setTodos(
+      todos.concat([
+        {
+          title,
+          id: Date.now(),
+          completed: false,
+        },
+      ])
+    )
   }
-
 
   return (
     <Context.Provider value={{ removeTodo }}>
       <div className='wrapper'>
         <h1>React tutorial</h1>
-        <AddTodo onCreate={addTodo}/>
+        <AddTodo onCreate={addTodo} />
         {todos.length ? (
           <TodoList todos={todos} onToggle={toggleTodo} />
         ) : (
